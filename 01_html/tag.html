@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태그 사용해보기</title>
+</head>
+<body>
+    <h1>안녕하세요! h1입니다...</h1>
+    <h2>안녕하세요! h2입니다...</h2>
+    <h3>안녕하세요! h3입니다...</h3>
+    <h4>안녕하세요! h4입니다...</h4>
+    <h5>안녕하세요! h5입니다...</h5>
+    <h6>안녕하세요! h6입니다...</h6>
+    <p>오늘은 날씨가 좋습니다. 첫 번째 수업인 html.. <br/> 재미있군요!!
+    </p>
+    <hr/>
+
+    <!-- 순서가 있는 리스트와 순서가 없는 리스트 -->
+    <h3>아이스라떼 만드는 법~~</h3>
+    <!-- ol type 1(default), a, A, i, I -->
+    <ol type="i">
+        <li><b>우유</b>를 <strong>컵</strong>에 넣습니다.</li>
+        <li><i>얼음</i>을 넣습니다.</li>
+        <li><em>에스프레소 샷</em>을 넣습니다.</li>
+    </ol>
+
+    <h3>오늘의 할 일!!</h3>
+    <!-- ul type disc(default), circle, square -->
+    <ul type="disc">
+        <li><u>html</u> 공부하기</li>
+        <li>운동하기</li>
+        <li><del>맛있는</del> 점심 먹기</li>
+    </ul>
+
+    <!-- 리스트 중첩해보기 -->
+    <ul>
+        <h3>내가 좋아하는 음식</h3>
+        <li>양식
+            <ul type="circle">
+                <li>스파게티</li>
+                <li>스테이크</li>
+            </ul>
+        </li>
+        <li>일식
+            <li>돈까스</li>
+            <li>라멘</li>
+        </li>
+    </ul>
+
+    <p>안녕하세요. . </p>
+    <pre>안녕하세요.    .   </pre>
+    <details>
+        <summary>summary에는 제목을 쓰면 돼요</summary>
+        <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, repellendus deleniti? Delectus tempora voluptates sapiente officiis quod quidem, ea molestias a aliquid ad laborum facilis vero consequatur reiciendis possimus esse.
+        </div>
+    </details>
+
+    <hr>
+    <h2>img 태그와 a 태그</h2>
+    <!-- img 태그 필수 속성 : src, alt -->
+
+    <img src="data:image/jpeg;base64,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" 
+    alt="고양이 사진" width="200" /><br>
+
+    <!-- 절대 경로, /의 의미가 매번 달라질 수 있음 -->
+    <img src="/01_html/zoom.png" alt="강아지 사진" width="300" />
+
+    <!-- 상대 경로, .은 자신이 있는 위치를 가리킴 -->
+    <img src="./zoom.png" alt="강아지 사진"
+    width="300"/>
+
+    <br />
+    <!-- a 태그 필수 속성 : href -->
+    <a href="https://www.naver.com/" target="_blank">네이버로 이동!</a>
+    <a href="./start.html" target="_self">start html로 이동</a>
+
+    <!-- 간단 실습 -->
+    <!-- 저장한 사진 클릭 시 google 이동 -->
+    <a href="https://www.google.co.kr/?hl=ko" target="_self"><img src="./검은 배경.jpg" alt="강아지 사진" width="300" /></a>
+</body>
+</html>
