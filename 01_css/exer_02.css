@@ -2,7 +2,6 @@
     width: 500px;
     height: 420px;
     position: relative;
-    border: 1px solid saddlebrown;
 }
 
 
@@ -13,65 +12,65 @@
     position: absolute;
 }
 
-.eye1 {
+.container > .items > .eye1 {
     background-color: white;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    left: 10px;
+    top: 20px;
+    z-index: 5;
+}
+
+.container > .items > .eye2 {
+    background-color: black;
     position: relative;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    left: 20px;
-    top: 10px;
-    z-index: 5;
-}
-
-.eye2 {
-    background-color: black;
-    position: relative;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    left:20px;
+    left:10px;
     top: 1px;
     z-index: 10;
 }
 
-.item1 {
+.container > .item1 {
     background-color: blue;
     left: 80px;
     top: 100px;
 }
 
-.item2 {
+.container > .item2 {
     background-color: rgb(103, 103, 255);
 
-    left: 120px;
+    left: 110px;
     top: 150px;
 }
 
-.item3 {
+.container > .item3 {
     background-color: rgb(159, 170, 255);
 
-    left: 180px;
+    left: 160px;
     top: 200px;
 }
 
-.item4 {
-    background-color: rgb(93, 96, 132);
+.container > .item4 {
+    background-color: rgb(79, 91, 225);
    
-    left: 200px;
+    left: 190px;
     top: 260px;
 }
 
-.item5 {
-    background-color: rgb(38, 38, 53);
+.container > .item5 {
+    background-color: rgb(57, 57, 198);
   
-    left: 250px;
+    left: 260px;
     top: 300px;
 
     z-index: 10;
 }
 
-.grass {
+.container > .grass {
     background-image: url('./img/grass.png');
     background-position: contain;
     width: 100%;
