@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position</title>
+    <!-- <link rel="stylesheet" href="./exer_02.css"> -->
+    <style>
+        .container{
+    width: 500px;
+    height: 420px;
+    position: relative;
+    border: 1px solid saddlebrown;
+}
+
+
+.container > .items{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.eye1 {
+    background-color: white;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    left: 20px;
+    top: 10px;
+    z-index: 5;
+}
+
+.eye2 {
+    background-color: black;
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    left:20px;
+    top: 1px;
+    z-index: 10;
+}
+
+.item1 {
+    background-color: blue;
+    left: 80px;
+    top: 100px;
+}
+
+.item2 {
+    background-color: rgb(103, 103, 255);
+
+    left: 120px;
+    top: 150px;
+}
+
+.item3 {
+    background-color: rgb(159, 170, 255);
+
+    left: 180px;
+    top: 200px;
+}
+
+.item4 {
+    background-color: rgb(93, 96, 132);
+   
+    left: 200px;
+    top: 260px;
+}
+
+.item5 {
+    background-color: rgb(38, 38, 53);
+  
+    left: 250px;
+    top: 300px;
+
+    z-index: 10;
+}
+
+.grass {
+    background-image: url('./img/grass.png');
+    background-position: contain;
+    width: 100%;
+    height: 100px;
+
+    position: absolute;
+    bottom:1px;
+    background-repeat: no-repeat;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="items item1">
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+        </div>
+        <div class="items item2"></div>
+        <div class="items item3"></div>
+        <div class="items item4"></div>
+        <div class="items item5"></div>
+        <div class="grass"></div>
+    </div>
+</body>
+</html>
