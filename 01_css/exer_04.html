@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition & transform</title>
+    <!-- <link rel="stylesheet" href="./exer_04.css"> -->
+    <style>
+        .container{
+            background-color: rgb(215, 214, 214);
+            width: 2000px;
+            height: 800px;
+            position: relative;
+        }
+
+        .box{
+            display: inline-block;
+            cursor: pointer;
+            justify-content: center;
+            position: absolute;
+        }
+
+        img {
+            width: 500px;
+            height: 300px;
+            transform: perspective(600px) skewY(25deg);
+        }
+
+        .img-box1{
+            top: 200px;
+            left: 200px;
+            z-index: 10;
+        }
+
+        .img-box2{
+            top: 200px;
+            left: 500px;
+            z-index: 5;
+        }
+
+        .img-box3{
+            top: 200px;
+            left: 800px;
+        }
+
+        .img-box1:hover{
+            transform: perspective(400px) skewY(-25deg);
+            transition-duration: 1.2s;
+        }
+
+        .img-box2:hover {
+            transform: perspective(400px) skewY(-25deg);
+            transition-duration: 1.2s;
+        }
+
+        .img-box3:hover {
+            transform: perspective(400px) skewY(-25deg);
+            transition-duration: 1.2s;
+        }
+        
+        .box:hover{ z-index: 10;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box img-box1">
+            <img src="./img/beach1.jpg" alt="item1">
+        </div>
+        <div class="box img-box2">
+            <img src="./img/beach2.jpg" alt="item2">
+        </div>
+        <div class="box img-box3">
+            <img src="./img/beach3.jpg" alt="item3">
+        </div>
+    </div>
+</body>
+</html>
