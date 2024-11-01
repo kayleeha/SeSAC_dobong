@@ -1,40 +1,89 @@
 .container{
     max-width: 1000px;
-    height: 400px;
+    height: 200px;
     /* 가운데 정렬 */
     margin: 0 auto;
     background-color: #333;
-
+    /* 부모 요소가 자식 요소 정렬을 하고 싶을 때 */
     display: flex;
     
     /*
     flexbox 기본 용어
     - 주축 main axis
         - 주축의 기본 방향 좌 > 우
-    -교차축 cross axis 
+    - 교차축 cross axis 
      */
 
     /*
     1. flex-direction - 주축의 정렬 방향 설정
-    - row(defalut): 좌 > 우
-    - row-reverse: 우 > 좌
-    - column: 위 > 아래
-    - column-reverse: 아래 > 위
+        - row (defalut) : 좌 > 우
+        - row-reverse : 우 > 좌
+        - column : 위 > 아래
+        - column-reverse : 아래 > 위
     */
 
     /* flex-direction: row; */
-    /* flex-direction: row-reverse; */
+    /* flex-direction: row-reverse; - 순서는 안 지켜짐(5, 4, 3, 2, 1) */
     /* flex-direction: column; */
     /* flex-direction: column-reverse; */
 
     /* 
     2.flex-wrap - 줄바꿈 설정 
-    - nowrap(defalut) : 찌부됨
-    - wrap : 줄바꿈이 됨
+        - nowrap (defalut) : 찌부됨
+        - wrap : 줄바꿈이 됨
     */
     
     /* flex-wrap: nowrap; */
     /* flex-wrap: wrap; */
+
+    /* 3. justify-content - 주축의 정렬 방법
+    flex-direction이 row일 때는 주축이 가로 > 수평 정렬
+    flex-direction이 column일 때는 주축이 세로 > 수직 정렬
+        - flex-start (defalut) : 아이템을 start 지점을 기준으로 나열
+        - flex-end : 끝으로 나열
+        - center : 중앙 정렬
+        - space-between : 처음과 마지막 아이템이 컨테이너의 양 끝으로 이동, 나머지 영역을 공평하게 나눔
+        - space-evenly : 아이템들의 모든 여백을 공평하게 갖도록 함
+        - space-around : 양 끝 영역의 단위가 1이라면 나머지 영역의 단위는 2
+    */
+
+    /* justify-content: flex-start; */
+    /* justify-content: flex-end; - 순서는 그대로 지켜짐(1, 2, 3, 4, 5)*/
+    /* justify-content: center; */
+    /* 예쁘게 정렬하고 싶을 때는 space-~ 사용 */
+    /* justify-content: space-between; */
+    /* justify-content: space-evenly; */
+    /* justify-content: space-around; */
+
+    /* 4. align-items: 교차축에 대한 정렬 방법 
+        - stretch (defalut) : container의 교차축 방향으로 길이를 늘림
+        - flex-start : 시작점으로 정렬
+        - flex-end : 끝점으로 정렬
+        - center : 중앙 정렬
+    */
+
+    /* align-items: stretch; */
+    /* align-items: flex-start; */
+    /* align-items: flex-end; */
+    /* align-items: center; */
+
+    /* 5. align-content : 여러 행을 정렬하는 방법
+    (조건) flex-wrap이 wrap인 상태일 때 (2줄 이상일 때) 유효한 속성
+        - stretch
+        - flex-start
+        - center
+        - flex-end
+        - space-between
+        - space-around
+        - space-evenly
+    */
+
+    /* align-content: flex-start; */
+    /* align-content: center; */
+    /* align-content: flex-end; */
+    /* align-content: space-between; */
+    /* align-content: space-around; */
+    /* align-content: space-evenly; */
 }
 
 .container > .items{
@@ -64,4 +113,55 @@
 
 .container > .items.item5{
     background-color: blue;
-}   
+}
+
+.container_2{
+    width: 500px;
+    height: 500px;
+    border: 1px solid gray;
+    background-color: beige;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.container_2 > .item {
+    width: 100px;
+    height: 100px;
+    flex-direction: row;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 100px;
+
+}
+
+.container_2 > .item.items1{
+    background-color: red;
+}
+
+.container_2 > .item.items2{
+    background-color: orange;
+}
+
+.container_2 > .item.items3{
+    background-color: yellow;
+}
+.container_2 > .item.items4{
+    background-color: green;
+}
+.container_2 > .item.items5{
+    background-color: blue;
+}
+.container_2 > .item.items6{
+    background-color: purple;
+}
+.container_2 > .item.items7{
+    background-color: aqua;
+}
+.container_2 > .item.items8{
+    background-color: yellowgreen;
+}
+
