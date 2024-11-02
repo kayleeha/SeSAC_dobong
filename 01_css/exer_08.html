@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자 움직이기</title>
+    <!-- <link rel="stylesheet" href="./exer_08.css"> -->
+    <style>
+        .text{
+            position: relative;
+        }
+
+        p{
+            animation: my-ani 4s 1 forwards;
+            position: absolute;
+            overflow: hidden;
+            height: 40px;
+        }
+
+        @keyframes my-ani {
+            from {
+                left: 500px;
+                height: 40px;
+            }
+
+            to {
+                left: 0px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="text">
+        <p>"As I relax on the sofa and gaze around a room a thought hits me: this is exactly the place I've been looking for all my
+        life. A little hideaway in some sinkhole somewhere. I'd always thought of it as a secret, imaginary place, and can
+        barely believe that it actually exists. I close my eyes and take a breath, and wonder of it all settles over me like a
+        gentle cloud."</p>
+    </div>
+</body>
+</html>

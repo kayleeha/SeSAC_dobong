@@ -6,7 +6,202 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>overwatch 캐릭터 선택창 만들기</title>
     <!-- CSS 링크 각자 css 경로에 맞도록 변경 -->
-    <link rel="stylesheet" href="./overwatch.css" />
+    <!-- <link rel="stylesheet" href="./exer_06.css" /> -->
+    <style>
+        body {
+            /* background-image bg.jpg 되도록 */
+            /* body- 수정하지 않아도 됩니다. */
+            background-image: url('./img/bg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container .heroes {
+            display: flex;
+            width: 700px;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            margin-bottom: 60px;
+        }
+
+        .container .heroes .hero {
+            width: 80px;
+            height: 80px;
+            overflow: hidden;
+            cursor: pointer;
+            background-color: gray;
+            border: 2px solid white;
+            border-radius: 10%;
+            transform: skew(-15deg);
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .container .heroes .hero:hover {
+            position: relative;
+            z-index: 10;
+            transform: scale(1.4) skew(-15deg);
+            transition: transform 1s ease;
+            background-color: rgb(216, 164, 68);
+        }
+
+        .container .heroes .hero .image {
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 20%;
+        }
+
+        /* 로고 - 수정하지 않아도 됩니다. */
+        .container .logo {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .container .logo img {
+            width: 100%;
+        }
+
+        /* 사진 넣기 작업 */
+        /* 사진이 해당 경로에 없다면 경로 수정해주세요. */
+        .container .heroes .hero:nth-child(1) .image {
+            background-image: url('./img/hero1.png');
+        }
+
+        .container .heroes .hero:nth-child(2) .image {
+            background-image: url('./img/hero2.png');
+        }
+
+        .container .heroes .hero:nth-child(3) .image {
+            background-image: url('./img/hero3.png');
+        }
+
+        .container .heroes .hero:nth-child(4) .image {
+            background-image: url('./img/hero4.png');
+        }
+
+        .container .heroes .hero:nth-child(5) .image {
+            background-image: url('./img/hero5.png');
+        }
+
+        .container .heroes .hero:nth-child(6) .image {
+            background-image: url('./img/hero6.png');
+        }
+
+        .container .heroes .hero:nth-child(7) .image {
+            background-image: url('./img/hero7.png');
+        }
+
+        .container .heroes .hero:nth-child(8) .image {
+            background-image: url('./img/hero8.png');
+        }
+
+        .container .heroes .hero:nth-child(9) .image {
+            background-image: url('./img/hero9.png');
+        }
+
+        .container .heroes .hero:nth-child(10) .image {
+            background-image: url('./img/hero10.png');
+        }
+
+        .container .heroes .hero:nth-child(11) .image {
+            background-image: url('./img/hero11.png');
+        }
+
+        .container .heroes .hero:nth-child(12) .image {
+            background-image: url('./img/hero12.png');
+        }
+
+        .container .heroes .hero:nth-child(13) .image {
+            background-image: url('./img/hero13.png');
+        }
+
+        .container .heroes .hero:nth-child(14) .image {
+            background-image: url('./img/hero14.png');
+        }
+
+        .container .heroes .hero:nth-child(15) .image {
+            background-image: url('./img/hero15.png');
+        }
+
+        .container .heroes .hero:nth-child(16) .image {
+            background-image: url('./img/hero16.png');
+        }
+
+        .container .heroes .hero:nth-child(17) .image {
+            background-image: url('./img/hero17.png');
+        }
+
+        .container .heroes .hero:nth-child(18) .image {
+            background-image: url('./img/hero18.png');
+        }
+
+        .container .heroes .hero:nth-child(19) .image {
+            background-image: url('./img/hero19.png');
+        }
+
+        .container .heroes .hero:nth-child(20) .image {
+            background-image: url('./img/hero20.png');
+        }
+
+        .container .heroes .hero:nth-child(21) .image {
+            background-image: url('./img/hero21.png');
+        }
+
+        .container .heroes .hero:nth-child(22) .image {
+            background-image: url('./img/hero22.png');
+        }
+
+        .container .heroes .hero:nth-child(23) .image {
+            background-image: url('./img/hero23.png');
+        }
+
+        .container .heroes .hero:nth-child(24) .image {
+            background-image: url('./img/hero24.png');
+        }
+
+        .container .heroes .hero:nth-child(25) .image {
+            background-image: url('./img/hero25.png');
+        }
+
+        .container .heroes .hero:nth-child(26) .image {
+            background-image: url('./img/hero26.png');
+        }
+
+        .container .heroes .hero:nth-child(27) .image {
+            background-image: url('./img/hero27.png');
+        }
+
+        .container .heroes .hero:nth-child(28) .image {
+            background-image: url('./img/hero28.png');
+        }
+
+        .container .heroes .hero:nth-child(29) .image {
+            background-image: url('./img/hero29.png');
+        }
+
+        .container .heroes .hero:nth-child(30) .image {
+            background-image: url('./img/hero30.png');
+        }
+
+        .container .heroes .hero:nth-child(31) .image {
+            background-image: url('./img/hero31.png');
+        }
+
+        .container .heroes .hero:nth-child(32) .image {
+            background-image: url('./img/hero32.png');
+        }
+    </style>
 </head>
 
 <body>
@@ -113,7 +308,7 @@
         </div>
         <div class="logo">
             <!-- logo_overwatch.png 읽을 수 있도록 경로 수정 -->
-            <img src="./images/logo_overwatch.png" alt="overwatch logo" />
+            <img src="./img/logo_overwatch.png" alt="overwatch logo" />
         </div>
     </div>
 </body>

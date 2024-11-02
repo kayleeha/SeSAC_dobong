@@ -1,0 +1,29 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: skyblue;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 1s;
+}
+
+ /* transform: perspective() translate() scale() rotate() skew(); */
+ 
+.box1:hover{
+    width: 200px;
+}
+
+.box2:hover{
+    transform: translate(28px) skew(-30deg);
+}
+
+.box3:hover{
+    background-color: red;
+    border-radius: 50%;
+    transform: translateX(500px) rotate(180deg);
+}
+
+ .box4:hover {
+     background-color: yellow;
+     transform: scale(1.5) rotateY(332deg);
+ }

@@ -32,10 +32,52 @@ header {
 /* TODO: header1 ~ 3까지 완성해주세요! */
 
 /* header1 */
-.header1 {}
+.header1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.header1 .menus {
+   display: flex;
+   justify-content: space-between;
+}
+
+.header1 li {
+    margin-right: 20px;
+}
+
+.header1 ul *:nth-child(3) {
+    margin-right: 0px;
+}
 
 /* header2 */
-.header2 {}
+
+.header2 {
+    align-content: center;
+    align-items: center;
+}
+
+.header2 .menus {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 /* header3 */
-.header3 {}
+.header3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header3 ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header3 ul li {
+    margin-right: 20px;
+}

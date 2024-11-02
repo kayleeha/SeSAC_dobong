@@ -1,0 +1,22 @@
+.text{
+    position: relative;
+}
+
+p{
+    animation: my-ani 4s 1 forwards;
+    position: absolute;
+    overflow: hidden;
+    height: 40px;
+}
+
+@keyframes my-ani {
+    from {
+        left: 500px;
+        height: 40px;
+    }
+
+    to {
+        left: 0px;
+        height: 100px;
+    }
+}
