@@ -45,13 +45,25 @@
 
         // TODO2: changeColor 함수 내부 작성
         function changeColor() {
-            for (let i = 0; i < colors.length - 1; i++) { // colors.length - 1로 변경
-                if ($(this).hasClass(colors[i])) {  // 현재 클래스가 맞는지 확인
-                    $(this).removeClass(colors[i])   // 현재 색상 클래스 제거
-                    $(this).addClass(colors[i + 1]); // 다음 색상 클래스 추가
-                }
-            }
-        }
+            // 1번 방안
+            // if($('div').hasClass('red'))
+            //     $('div').switchClass('red', 'orange');
+            // else if($('div').hasClass('orange'))
+            //     $('div').switchClass('orange', 'yellow');
+            // // 등등
+            // else if($('div').hasClass('purple'))
+            //     $('div').switchClass('purple', 'red');
+
+            // 2번 방안
+            let nowClass = $('div').attr('class'); // 현재 클래스 값 가져오기
+            let i = colors.indexOf(nowClass); // 0 ~ 5
+
+            // purple 일 때
+            if (i == colors.length - 1) $('div').switchClass(nowClass, colors[0]);
+            else $('div').switchClass(nowClass, colors[i + 1]);
+        
+        } 
+           
     </script>
 </head>
 

@@ -10,15 +10,16 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         function changeImg(name) {
-            if(name === 'apple') {
-                $('img').attr('src', './img/apple.jpg')
-            } else if(name === 'banana') {
-                $('img').attr('src', './img/bananas.jpg')
-            } else if(name === 'grape') {
-                $('img').attr('src', './img/grapes.jpg')
-            } else if(name === 'peach') {
-                $('img').attr('src', './img/peaches.jpg')
-            }
+            // if(name === 'apple') {
+            //     $('img').attr('src', './img/apple.jpg')
+            // } else if(name === 'banana') {
+            //     $('img').attr('src', './img/banana.jpg')
+            // } else if(name === 'grape') {
+            //     $('img').attr('src', './img/grap.jpg')
+            // } else if(name === 'peach') {
+            //     $('img').attr('src', './img/peach.jpg')
+            // }
+            $('img').attr('src', `./img/${name}.jpg`);
         }
     </script>
 </head>
