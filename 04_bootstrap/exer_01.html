@@ -10,6 +10,9 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- bootstrap icon CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <style>
         body {
             background-color: #f9f9f9;
@@ -21,19 +24,35 @@
         }
 
         .navbar {
-            background-color: #f9ac74; /* 배경 색상 */
+            background-color: #f9ac74; 
             opacity: 0.4;
             padding: 10px 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 */
         }
 
         .navbar-nav .nav-link {
-            color: white !important; /* 텍스트 색상 */
+            color: white !important; 
             font-weight: bold;
         }
 
         .navbar-nav .nav-link:hover {
-            color: #333 !important; /* 호버 시 색상 */
+            color: #b34040 !important; 
+        }
+
+        .menu{
+            font-size: 50px;
+            color: snow;
+            margin-right: 20px;
+        }
+
+        .login,
+        .logout {
+            background-color: #e67e22;
+            margin-right: 10px;
+        }
+
+        .search{
+            background-color: #e26912;
         }
 
         .carousel-inner img {
@@ -95,8 +114,8 @@
         }
 
         .form-container {
-            position: fixed;
-            top: 28%; 
+            position: fixed; /* 스크롤 움직일 시 form 고정 */ 
+            top: 28%; /* 스크롤 움직일 시 header 버튼 안 가리기 위함 */
             right: 50px; 
             width: 400px; 
             padding: 15px;
@@ -158,7 +177,8 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">호두야 사랑해</a>
+                <i class="bi bi-justify menu"></i>
+                <a class="navbar-brand text-danger" href="#"><b>호두야 사랑해</b></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -177,6 +197,16 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">입양 신청</a>
                         </li>
+                        <li class="nav-item login">
+                            <a class="nav-link" href="#"><i class="bi bi-lock">로그인</i></a>
+                        </li>
+                        <li class="nav-item logout">
+                            <a class="nav-link" href="#"><i class="bi bi-lock">로그아웃</i></a>
+                        </li>
+                        <li class="nav-item search">
+                            <a class="nav-link" href="#"><i class="bi bi-search">통합검색</i></a>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -225,7 +255,7 @@
                         <p class="card-text">논에서 울고 있는 아가를 보았답니다! 검진 결과 건강 상태 양호!</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">여아</li>
+                        <li class="list-group-item"><i class="bi bi-gender-female">여아</i></li>
                         <li class="list-group-item">2개월 추정</li>
                         <li class="list-group-item">세 달 뒤 안락사 예정</li>
                     </ul>
@@ -243,7 +273,7 @@
                         <p class="card-text">장난꾸러기 강아지입니다! 애교가 엄청 많고 사람을 잘 따릅니다~</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">남아</li>
+                        <li class="list-group-item"><i class="bi bi-gender-male">남아</i></li>
                         <li class="list-group-item">4세 추정</li>
                         <li class="list-group-item">두 달 뒤 안락사 예정</li>
                     </ul>
