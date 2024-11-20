@@ -5,7 +5,7 @@ const PORT = 8080;
 // 미들웨어 설정 추가
 // 뷰 엔진 설정
 app.set("view engine", "ejs");
-app.set("/views", "views");
+app.set("views", "./views");
 
 // static 폴더 설정 추가 // static이라는 경로를 /public 대신에 사용할 것
 app.use("/static", express.static(__dirname + "/public"));

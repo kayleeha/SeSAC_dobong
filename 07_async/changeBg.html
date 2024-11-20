@@ -35,15 +35,15 @@
 
       // promise 객체 > then을 이용한 chaning
 
-      // changeColor("red")
-      //   .then(() => {
-      //     return changeColor("orange");
-      //   })
-      //   .then(() => {
-      //     return changeColor("yellow");
-      //   })
-      //   .then(() => changeColor("green"))
-      //   .then(() => changeColor("blue"));
+      changeColor("red")
+        .then(() => {
+          return changeColor("orange");
+        })
+        .then(() => {
+          return changeColor("yellow");
+        })
+        .then(() => changeColor("green"))
+        .then(() => changeColor("blue"));
 
       // async await
 
