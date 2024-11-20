@@ -28,17 +28,42 @@
 //   });
 // });
 
-function call(name, cb) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve();
+// Promise
+function callPromise(name) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      console.log(name);
+      resolve(name); // cb 대신 resolve로 값 넘김
     }, 1000);
   });
 }
 
+function backPromise() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      console.log("back");
+      resolve("back");
+    }, 1000);
+  });
+}
+
+function hellPromise() {
+  // reject 생략 가능
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      resolve("callback hell");
+    }, 1000);
+  });
+}
+
+// async / await
 async function exec() {
-  await call("kim", back);
-  await call("kim", hell);
+  const name = await callPromise("allie");
+  console.log(name + "반가워");
+  const back = await backPromise();
+  console.log(back + "을 실행했구나");
+  const hell = await hellPromise();
+  console.log("여기는" + hell);
 }
 
 exec();
