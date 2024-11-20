@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 2</title>
+    <style>
+      fieldset {
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>실습 문제 2</h1>
+    <form action="form-post" method="post">
+      <legend>이름</legend>
+      <label><input type="text" name="name" /></label>
+
+      <fieldset>
+        <legend>성별</legend>
+        <label>
+          <input type="radio" name="gender" value="남자" />남자
+          <input type="radio" name="gender" value="여자" />여자
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>생년월일</legend>
+        <label>
+          <select id="year" name="birth">
+            <% for(let i=1970; i<2025; i++){%>
+            <option><%= i%></option>
+            <%}%>
+          </select>
+          <select id="month" name="birth">
+            <% for(let i=1; i<13; i++){%>
+            <option><%= i%></option>
+            <%}%>
+          </select>
+          <select id="day" name="birth">
+            <% for(let i=1; i<32; i++){%>
+            <option><%= i%></option>
+            <%}%>
+          </select>
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>관심사</legend>
+        <label>
+          <input type="checkbox" name="interest" value="travel" />여행
+          <input type="checkbox" name="interest" value="fasion" />패션
+          <input type="checkbox" name="interest" value="food" />음식
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>선택</legend>
+        <label>좋아하는 색상<input type="color" name="color" /></label><br />
+        <label>좋아하는 숫자<input type="number" name="number" /></label>
+      </fieldset>
+      <br />
+      <button>회원가입</button>
+    </form>
+  </body>
+</html>

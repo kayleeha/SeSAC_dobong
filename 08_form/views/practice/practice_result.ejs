@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 result</title>
+    <style>
+      div {
+        width: 300px;
+        height: 70px;
+        border: 1px solid gray;
+      }
+
+      span {
+        font-weight: 700px;
+      }
+
+      .orange {
+        color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>결과 확인하기</h1>
+
+    <h3>
+      <span class="orange"><b><%=userInfo.name%></b></span
+      >님 환영합니다!
+    </h3>
+
+    <div>성별:<%=userInfo.gender%></div>
+    <div>생년월일:<%=userInfo.birth%></div>
+    <div>관심사:<%=userInfo.interest%></div>
+
+    <h3>다른 태그 작성해보기</h3>
+    <p>
+      좋아하는 색깔:<span><b><%=userInfo.color%></b></span>
+    </p>
+    <p>
+      좋아하는 숫자:<span class="orange"><b><%=userInfo.number%></b></span>
+    </p>
+
+    <a href="/practice"></a>
+  </body>
+</html>
