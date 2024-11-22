@@ -69,6 +69,7 @@ app.get("/form-get", function (req, res) {
   res.render("practice/practice_result", {
     title: "GET",
     userInfo: req.query,
+    addInfo: false, // practice1에서는 적은 정보를 주고 있음
   });
 });
 
@@ -78,6 +79,7 @@ app.post("/form-post", function (req, res) {
   res.render("practice/practice_result", {
     title: "POST",
     userInfo: req.body,
+    addInfo: true,
   });
 });
 

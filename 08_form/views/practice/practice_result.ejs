@@ -29,17 +29,29 @@
     </h3>
 
     <div>성별:<%=userInfo.gender%></div>
-    <div>생년월일:<%=userInfo.birth%></div>
+    <div>
+      생년월일:<%=userInfo.year%> / <%=userInfo.month%> / <%=userInfo.date%>
+    </div>
     <div>관심사:<%=userInfo.interest%></div>
-
+    <% if(addInfo){ %>
     <h3>다른 태그 작성해보기</h3>
     <p>
-      좋아하는 색깔:<span><b><%=userInfo.color%></b></span>
+      좋아하는 색깔:<span class="color"><b><%=userInfo.color%></b></span>
     </p>
     <p>
       좋아하는 숫자:<span class="orange"><b><%=userInfo.number%></b></span>
     </p>
+    <p>
+      다짐 한마디:<span class="orange"><b><%=userInfo.comment%></b></span>
+    </p>
+    <% } %>
 
-    <a href="/practice"></a>
+    <a href="/">홈으로 이동하기</a>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const colorSpan = document.querySelector(".color");
+        colorSpan.style.color = "<%=userInfo.color%>";
+      });
+    </script>
   </body>
 </html>
