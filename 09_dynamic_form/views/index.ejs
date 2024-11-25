@@ -232,7 +232,7 @@
         // }) // fetch의 defalut method는 'GET'
         fetch(`/fetch?name=${data.name}&gender=${data.gender}`)
           .then((res) => {
-            console.log(res);
+            console.log(res); // 이 때는 원하는 데이터가 바로 안 뽑히기 때문에 return res.text(); 또는 return res.json(); 사용!
             // 서버에서 넘어온 문자열을 뽑아내기 위해 text() 메소드 사용
             // text() : response 객체에서 텍스트 본문을 뽑아내기 위해 사용
             // return res.text();
