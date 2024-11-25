@@ -7,6 +7,9 @@ const PORT = 8080;
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
+const realId = "banana";
+const realPw = "4321";
+
 // 2. body-parser 설정
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -58,6 +61,36 @@ app.get("/fetch", (req, res) => {
 app.post("/fetch", (req, res) => {
   console.log(req.body);
   res.send(req.body);
+});
+
+// 외부 api 사용하기
+app.get("/api", (req, res) => {
+  res.send(req.query);
+});
+
+// 회원가입 하기
+app.get("/practice1", (req, res) => {
+  res.render("practice/practice1");
+});
+
+// 회원가입 하기
+app.get("/practice1", (req, res) => {
+  res.send(req.query);
+});
+
+// 로그인 하기
+app.get("/practice2", (req, res) => {
+  res.render("practice/practice2");
+});
+
+// 로그인 하기
+app.post("/practice2", (req, res) => {
+  const { id, pw } = req.body;
+  if (realId === id && realPw === pw) {
+    res.send({ isSuccess: true, id: id });
+  } else {
+    res.send({ isSuccess: false });
+  }
 });
 
 app.listen(PORT, () => {
