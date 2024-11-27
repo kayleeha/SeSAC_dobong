@@ -44,10 +44,10 @@
       <div class="resultBox"></div>
     </form>
     <script>
-      const resultBox = document.getElementById(".resultBox");
+      const resultBox = document.querySelector(".resultBox");
       async function loginAxios() {
         const form = document.forms["login"];
-        const resultBox = document.querySelector(".resultBox");
+
         const data = {
           id: form.id.value,
           pw: form.pw.value,
