@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <style>
+      form label {
+        display: flex;
+      }
+
+      form label span {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/register" method="post" enctype="multipart/form-data">
+      <label for="id"
+        ><span>아이디</span><input type="text" id="id" name="userId" />
+      </label>
+
+      <label for="pw"
+        ><span>비밀번호</span> <input type="password" id="pw" name="pw"
+      /></label>
+
+      <label for="name"
+        ><span>이름</span> <input type="text" id="name" name="userName"
+      /></label>
+
+      <label for="age"
+        ><span>나이</span> <input type="number" id="age" name="age"
+      /></label>
+
+      <label><span>나이</span><input type="file" name="profileImg" /> </label>
+
+      <button>리셋</button> <button onclick="goPage()">회원가입</button>
+    </form>
+    <script>
+      function goPage() {}
+    </script>
+  </body>
+</html>
