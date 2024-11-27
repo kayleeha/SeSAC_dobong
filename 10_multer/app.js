@@ -118,7 +118,11 @@ app.post(
 // 동적 form 파일 업로드
 app.post("/dynamicUpload", uploadDetail.single("dynamicFile"), (req, res) => {
   console.log(req.file);
-  res.send(req.file);
+  console.log(req.body);
+
+  // 하나의 객체에 합쳐서 보내는 방법
+  // res.send({ ...req.body, ...req.file });
+  res.send({ file: req.file, fileInfo: req.body });
 });
 
 app.listen(PORT, () => {
