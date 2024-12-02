@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>로그인</title>
+    <title>로그인 - MVC 실습</title>
+    <!-- axios CDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <style>
       form label {
         display: flex;
@@ -12,17 +14,96 @@
       form label span {
         width: 100px;
       }
+
+      .success {
+        color: blue;
+        font-weight: 700;
+      }
+
+      .error {
+        color: red;
+        font-weight: 700;
+      }
     </style>
   </head>
   <body>
     <form name="login">
       <label for="id"
-        ><span>아이디</span><input type="text" id="id" name="id"
+        ><span>아이디</span><input type="text" id="id" name="id" required
       /></label>
       <label for="pw"
-        ><span>비밀번호</span><input type="password" id="pw" name="pw"
-      /></label>
-      <button>로그인</button> <button>회원가입</button>
+        ><span>비밀번호</span
+        ><input type="password" id="pw" name="pw" required /></label
+      ><br />
+      <button type="button" onclick="clickLogin()">로그인1</button>
+      <button type="button" onclick="clickLogin2()">로그인2</button>
     </form>
+    <div class="result"></div>
+    <script>
+      const result = document.querySelector(".result");
+      function clickLogin() {
+        const form = document.forms["login"];
+
+        const data = {
+          id: form.id.value,
+          pw: form.pw.value,
+        };
+
+        if (!form.id.checkValidity() || !form.pw.checkValidity()) {
+          result.textContent = "아이디와 비밀번호는 필수값입니다.";
+          return;
+        }
+
+        axios({
+          method: "post",
+          url: "/login",
+          data: data,
+        })
+          .then((res) => {
+            console.log(res);
+            console.log(res.data);
+            if (res.data.isSuccess) {
+              result.textContent = "로그인 성공";
+              result.classList.add("success");
+              result.classList.remove("error");
+            } else {
+              result.textContent = "로그인 실패";
+              result.classList.add("error");
+              result.classList.remove("success");
+            }
+          })
+          .catch((e) => {
+            console.error(e);
+          });
+      }
+      async function clickLogin2() {
+        try {
+          const form = document.forms["login"];
+
+          const data = {
+            id: form.id.value,
+            pw: form.pw.value,
+          };
+          const res = await axios({
+            method: "post",
+            url: "/login2",
+            data: data,
+          });
+          console.log(res);
+          console.log(res.data);
+          if (res.data.isSuccess) {
+            result.textContent = `${res.data.userName}님 환영합니다!`;
+            result.classList.add("error");
+            result.classList.remove("success");
+          } else {
+            result.textContent = "로그인 실패";
+            result.classList.add("error");
+            result.classList.remove("success");
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    </script>
   </body>
 </html>
