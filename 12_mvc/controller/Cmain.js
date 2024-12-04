@@ -11,7 +11,7 @@ exports.comments = (req, res) => {
   res.render("comments", { commentInfos: Comment.commentInfos() });
 };
 
-// get / commnt/:id
+// get / comment/:id
 exports.comment = (req, res) => {
   const comments = Comment.commentInfos();
   console.log(req.params);
