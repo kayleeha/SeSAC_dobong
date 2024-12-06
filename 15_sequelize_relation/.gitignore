@@ -1,0 +1,4 @@
+/node_modules
+
+# env는 gitignore에 추가해야 함
+.env
