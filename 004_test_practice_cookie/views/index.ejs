@@ -25,12 +25,12 @@
   <body>
     <h1>실습. Cookie 연습</h1>
     <p>
-      페이지 접속했을 때 위와 같은 창 보이게 하고, "오늘 그만 보기" 선택한 후 "닫기" 하면
-      브라우저를 껐다 켜도 창이 보이지 않게 하기
+      페이지 접속했을 때 위와 같은 창 보이게 하고, "오늘 그만 보기" 선택한 후
+      "닫기" 하면 브라우저를 껐다 켜도 창이 보이지 않게 하기
     </p>
     <p>
-      개발자도구 > Application > Storage > Cookies > 주소 클릭 후 쿠키를 삭제했다면
-      브라우저 새로고침시 alert 창이 나타나야 함!
+      개발자도구 > Application > Storage > Cookies > 주소 클릭 후 쿠키를
+      삭제했다면 브라우저 새로고침시 alert 창이 나타나야 함!
     </p>
     <!-- Modal: 현재 보이지 않는 상태, 쿠키가 없으면 js 이용해서 나타나도록 설정하기 -->
     <div
@@ -56,11 +56,17 @@
             쿠키 실습
             <div class="text-end mt-3">
               <input type="checkbox" id="cookie" />
-              <label for="cookie" style="cursor: pointer">오늘 하루 보지 않음.</label>
+              <label for="cookie" style="cursor: pointer"
+                >오늘 하루 보지 않음.</label
+              >
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" onclick="closeModal();">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="closeModal();"
+            >
               닫기
             </button>
           </div>
@@ -77,22 +83,36 @@
       const myModal = new bootstrap.Modal("#exampleModal");
       // console.log(myModal);
 
-      /*  
+      /*
       1. 쿠키 없으면 myModal.show() 시키기, 쿠키 있으면 xxx
-      2. 오늘하루 보지 않기 체크 후 닫기 버튼 누르면 24시간 짜리 쿠키 생성 
+      2. 오늘하루 보지 않기 체크 후 닫기 버튼 누르면 24시간 짜리 쿠키 생성
       */
 
       // 서버에서 render 할 때 두번째 인자로 보내는 popup 키에 대한 데이터
       // popup이라는 곳에 쿠키 데이터 담아서 보낸 후 확인해보기
-      console.log("popup >> ", "<%#= popup %>");
+      console.log("popup >> ", "<%=popup %>");
+      console.log(typeof "<%=popup %>"); // 항상 string
 
       // TODO: popup 쿠키 값이 ''이라면, 모달 보여주기 (쿠키가 설정되지 않았다면)
+      if ("<%=popup %>" === "") {
+        myModal.show();
+      }
 
       // TODO: 모달 닫기 버튼 클릭 함수 완성
       async function closeModal() {
         // 1. 체크 박스가 "체크되어 있다면" (오늘 하루 보지 않음을 선택했다면)
-        // POST /setCookie 요청 보내기 (back에서 popup 쿠키 설정하기)
+        const checkbox = document.getElementById("cookie");
+        if (checkbox.checked) {
+          // POST /setCookie 요청 보내기 (back에서 popup 쿠키 설정하기)
+          const cookieResult = await axios({
+            method: "POST",
+            url: "/setCookie",
+          });
+          console.log(cookieResult);
+        }
+
         // 2. js로 모달 닫기 수행 (위 참고 링크 확인)
+        myModal.hide();
       }
     </script>
   </body>
