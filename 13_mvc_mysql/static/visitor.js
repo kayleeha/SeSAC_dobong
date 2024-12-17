@@ -84,25 +84,25 @@ function editVisitor(id) {
 
       const btnContainer = document.getElementById("btn-group");
       const html = `
-      <button type="button" onclick="editDo(${id})">수정하기</button>
-      <button type="button" onclick="editCancel()">취소하기</button>
+      <button type="button" onclick=editDo(${id})>수정하기</button>
+      <button type="button" onclick="editCancel()">수정취소</button>
       `;
-      btnContainer.innerText = html;
+      btnContainer.innerHTML = html;
     })
-    .catch((e) => console.error(e));
+    .catch((err) => console.error(err));
 }
 
 // 2. 실제 수정 데이터를 요청
+// PATCH /visitor
 function editDo(id) {
   const form = document.forms["visitor-form"];
-
   if (form.name.value.length === 0 || form.comment.value.length === 0) {
-    alert("이름과 방명록을 모두 기입해주세요!");
+    alert("이름과 방명록을 모두 기입해주세요.");
     return;
   }
 
-  // 테이블 생성 시 name 컬럼을 varchar(10)으로 설정해 두어서
-  // 프론트에서 유효성 검사를 하고 데이터 전송
+  // 테이블 생성시 name 컬럼을 varchar(10)으로 설정해두어서
+  // 프론트에서 유효성검사를 하고 데이터 전송
   if (form.name.value.length > 10) {
     alert("이름은 10글자 미만으로 작성해주세요!");
     return;
@@ -118,17 +118,20 @@ function editDo(id) {
     },
   })
     .then((res) => {
-      console.log(res.data);
-      const { id, name, comment } = res.data;
+      console.log(res.data); //"수정 완료"
+      //   const { id, name, comment } = res.data;
+      //   console.log(id, name, comment);
       const tr = document.querySelector(`#tr_${id}`);
+      console.log(tr);
       console.log(tr.children);
-      const children = tr.children; // children = [td, td, td, td, td]
+      const children = tr.children; //children= [td,td,td,td,td]
+      console.log(children);
       children[1].textContent = form.name.value; // 작성자
       children[2].textContent = form.comment.value; // 방명록 내용
 
       editCancel();
     })
-    .catch((e) => console.error(e));
+    .catch((err) => console.error(err));
 }
 
 // 수정 취소

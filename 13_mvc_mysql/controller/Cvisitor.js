@@ -24,7 +24,7 @@ exports.getVisitor = (req, res) => {
   console.log(req.params.id); // '2'
   Visitor.getVisitor(req.params.id, (result) => {
     console.log("한 개의 데이터 Cvisitor.js", result);
-    res.send("response!");
+    res.json(result);
   });
 };
 
