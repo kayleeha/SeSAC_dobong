@@ -15,8 +15,20 @@ import {
 import FunctionState from "./components/FunctionState";
 import FunctionTest from "./components/FunctionTest";
 import SyntheticEvent from "./components/SyntheticEvent";
+import EntirePractice from "./components/ex/EntirePractice";
+import PropsMap from "./components/PropsMap";
+import PropsMap2 from "./components/PropsMap2";
+import Alphabet from "./components/Alphabet";
+import UserInfo from "./components/UserInfo";
+import Notice from "./components/Notice";
 
 function App() {
+  const arr = [
+    { name: "peach", krPrice: 10000, number: 5 },
+    { name: "strawberry", krPrice: 15000, number: 1 },
+    { name: "pear", krPrice: 5000, number: 3 },
+    { name: "apple", krPrice: 20000, number: 15 },
+  ];
   return (
     <div>
       <h2>Props 사용</h2>
@@ -48,12 +60,19 @@ function App() {
       {/* <SyntheticEvent />
       <Counter /> */}
       <h2>test</h2>
-      <HandlerEx />
+      {/* <HandlerEx />
       <HandlerEx2 />
       <h2>안녕하세요!</h2>
       <HandlerEx3>안녕하세요</HandlerEx3>
       <Change />
       <PororoObj />
+      <EntirePractice /> */}
+      {/* <PropsMap arr={arr} />
+      <PropsMap2 arr={arr} />
+      <PropsMap2 /> */}
+      <Alphabet />
+      <UserInfo />
+      <Notice />
     </div>
   );
 }
