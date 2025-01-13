@@ -1,0 +1,13 @@
+body {
+  padding: 20px;
+}
+
+.container {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.container div {
+  width: 100px;
+  height: 100px;
+}
