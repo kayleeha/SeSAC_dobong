@@ -26,9 +26,9 @@ function App() {
         <FakePost />
       </Container> */}
       {/* <RealPost /> */}
-      {/* <RefTest1 /> */}
-      {/* <RefTest2 />*/}
-      <RefTest3 />
+      <RefTest1 />
+      <RefTest2 />
+      <RefTest3 />/
     </div>
   );
 }
