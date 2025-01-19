@@ -24,8 +24,8 @@ const ShoppingCartApp = () => {
   const removeFromCart = useCallback(
     (productId) => {
       // 장바구니에서 상품 제거 로직 작성
-      setCart((prev) => prev.filter((el) => el.name !== productId));
       console.log(productId);
+      setCart((prev) => prev.filter((el) => el.id !== productId));
     },
     [
       /* 의존성 배열 */
@@ -59,7 +59,7 @@ const ShoppingCartApp = () => {
           return (
             <div key={el.id}>
               <span>{el.name}</span>
-              <button onClick={() => removeFromCart(el.name)}>Remove</button>
+              <button onClick={() => removeFromCart(el.id)}>Remove</button>
             </div>
           );
         })}
