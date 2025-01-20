@@ -2,7 +2,7 @@ import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 export default function StudentPage() {
   const nav = useNavigate();
-  const { name } = useParams();
+  const { name } = useParams(); // params.name
   const [searchQuery] = useSearchParams();
   const realName = searchQuery.get("name");
 
