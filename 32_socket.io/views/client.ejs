@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>socket.io emit, on 기본</title>
+    <!-- socket.io CDN -->
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <ul></ul>
+    <form id="chat">
+      <input type="text" id="user" placeholder="사용자명" />
+      <input type="text" id="message" placeholder="채팅 내용" />
+      <button type="submit">보내기</button>
+    </form>
+
+    <form id="chat2">
+      <h2>hello world</h2>
+      <button id="hello">hello</button>
+      <button id="study">study</button>
+      <button id="bye">bye</button>
+      <ul></ul>
+    </form>
+    <script>
+      // io() 함수가 소켓 생성 및 연결 설정
+      const socket = io();
+
+      // [on, emit 사용해보기]
+      // 1. 이벤트 발생 시키는 중, server로 데이터 전달 받은 후 server가 전달한 데이터를 다시 받아줌
+      // client > server > client
+      socket.emit(
+        "event_name",
+        "hello~~",
+        10,
+        { name: "allie" },
+        (res1, res2, res3) => {
+          // server에서 다시 보내는 데이터를 받는 callback
+          console.log(res1, res2, res3);
+        }
+      );
+
+      // 2. 데이터를 다시 받아주는 cb가 없을 때
+      // client > server
+      socket.emit("cb_test", "안뇽!");
+
+      // 3-1. server > client, 클라이언트 전체에게
+      socket.on("entire_client", (msg) => {
+        console.log("entire_client", msg);
+      });
+
+      // 3-2. server > client, 클라이언트 한 명에게
+      socket.on("one_client", (msg) => {
+        console.log("one_client", msg);
+      });
+
+      // ============== 채팅 만들기 ! ==============
+      socket.emit(
+        "new_msg1",
+        { name: "client", message: "server 접속" },
+        (arg) => {
+          console.log(arg);
+        }
+      );
+
+      const chatForm = document.querySelector("#chat");
+      const user = chatForm.querySelector("#user");
+      const message = chatForm.querySelector("#message");
+      const ul = document.querySelector("ul");
+
+      chatForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // 나의 메세지가 나에게만 보임
+        socket.emit(
+          "new_msg1",
+          {
+            name: user.value,
+            message: message.value,
+          },
+          (data) => {
+            // data: {name:String, message:String}
+            const li = document.createElement("li");
+            li.textContent = `${data.name} : ${data.message}`;
+            ul.append(li);
+            li.style.color = "red";
+          }
+        );
+
+        // 나의 메세지가 모두에게 보이도록
+        socket.emit("new_msg2", {
+          name: user.value,
+          message: message.value,
+        });
+      });
+
+      socket.on("msg_render", (data) => {
+        // data : {name, message}
+        const li = document.createElement("li");
+        li.textContent = `${data.name} : ${data.message}`;
+        ul.append(li);
+        li.style.color = "blue";
+      });
+
+      // =========== 실습 문제 ===========
+
+      const hello = document.querySelector("#hello");
+      const study = document.querySelector("#study");
+      const bye = document.querySelector("#bye");
+      const ul2 = document.querySelector("ul");
+
+      hello.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        socket.emit("hello", "hello : 안녕하세요", (res) => {
+          const li = document.createElement("li");
+          li.textContent = res;
+          ul.append(li);
+          li.style.color = "red";
+        });
+      });
+
+      study.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        socket.emit("hello", "study : 공부하기", (res) => {
+          const li = document.createElement("li");
+          li.textContent = res;
+          ul.append(li);
+          li.style.color = "red";
+        });
+      });
+
+      bye.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        socket.emit("hello", "bye : 잘가~", (res) => {
+          const li = document.createElement("li");
+          li.textContent = res;
+          ul.append(li);
+          li.style.color = "red";
+        });
+      });
+    </script>
+  </body>
+</html>
